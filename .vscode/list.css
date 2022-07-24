@@ -1,0 +1,35 @@
+html, body {
+  width: 50%;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 400px;
+}
+
+#inputField {
+  width: 300px;
+  height: 25px;
+  border: 1px solid black;
+  outline: none;
+  font-size: 24px;
+  vertical-align: middle;
+  padding: 12px;
+  margin-right: 12px;
+}
+
+#addToDo {
+  font-size: 24px;
+}
+
+li {
+  list-style: none;
+  font-size: 24px;
+  margin: 24px;
+  margin-left: 0;
+  padding: 12px;
+  outline: auto;
+}
+
+
