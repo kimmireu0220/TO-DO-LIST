@@ -1,8 +1,9 @@
+const listForm = document.querySelector('.listForm');
 const inputBox = document.getElementById('inputField');  // 할 일 입력창
-const addToDo = document.getElementById('addToDo');      // + 버튼
 const toDoList = document.querySelector('.toDoList');    // 할 일 리스트창
 
-addToDo.addEventListener('click', function() {    
+listForm.addEventListener('submit', function(e) {
+  e.preventDefault();    
   const list = document.createElement('li');     
   list.innerText = inputBox.value;
 
