@@ -1,41 +1,53 @@
-const listForm = document.querySelector('.listForm');
-const inputBox = document.getElementById('inputField');  // 할 일 입력창
-const toDoList = document.querySelector('.toDoList');    // 할 일 리스트창
+window.onload=function() {
+  if (savedToDos) {
+    const parsedToDos = JSON.parse(savedToDos);
+    toDos = parsedToDos;
+    parsedToDos.forEach(makeToDo)
+  }
+}
 
-let toDos = [];
-const TODOS_KEY = "todos";
+const listForm = document.querySelector('.listForm');    // 라스트  양식
+const inputBox = document.getElementById('inputField');  // 리스트 입력창
+const toDoList = document.querySelector('.toDoList');    // 리스트 내역
+
+let toDos = [];                                          // 리스트 저장 공간
+const TODOS_KEY = "todos";                               // localStorage key값 
+const savedToDos = localStorage.getItem(TODOS_KEY);      // 저장된 리스트 
+
+function removeToDos(event) {
+  const target = event.target.parentElement;
+  target.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(target.id));
+  saveToDos();
+}
 
 function saveToDos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
-function paintToDo(newToDo) {
+function makeToDo(newToDo) {
   const list = document.createElement('li');    
-  list.id = newToDo.id; 
   const span = document.createElement('span');
   const button = document.createElement('button');
 
+  list.id = newToDo.id; 
   list.appendChild(span);
   list.appendChild(button);  
-  toDoList.appendChild(list);  
   span.innerText = newToDo.text;
   button.innerText = '❌';    
+  toDoList.appendChild(list);  
 
   list.addEventListener('click', function() {
     if (list.style.textDecoration == 'none') {
       list.style.textDecoration = 'line-through';
+      list.style.textDecorationColor = 'red';
     } 
     else {
       list.style.textDecoration = 'none';
     }
   })
   
-  button.addEventListener('click', function(event) {
-    const removingOne = event.target.parentElement;
-    removingOne.remove();
-    toDos = toDos.filter((toDo) => toDo.id !== parseInt(removingOne.id));
-    saveToDos();
-  })
+  button.addEventListener('click', removeToDos);
 }
 
 function handleToDoSubmit(event) {
@@ -48,17 +60,10 @@ function handleToDoSubmit(event) {
       id: Date.now(),
     };
     toDos.push(newToDoObject);
-    paintToDo(newToDoObject);
+    makeToDo(newToDoObject);
     saveToDos();
   }
 } 
 
  listForm.addEventListener('submit', handleToDoSubmit);
 
- const savedToDos = localStorage.getItem(TODOS_KEY);
-
- if (savedToDos !== null) {
-  const parsedToDos = JSON.parse(savedToDos);
-  toDos = parsedToDos;
-  parsedToDos.forEach(paintToDo)
- }

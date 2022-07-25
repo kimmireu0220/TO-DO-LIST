@@ -9,14 +9,17 @@
 </head>
 
 <body>
-  <div>
-    <h1>To Do List</h1>
+  <div class="listContainer">
+    <div class="title">
+      <h1>To Do List</h1>
+    </div>
+    <form class="listForm">
+      <input type="text" id="inputField" autofocus>
+      <button type="submit" id="submitButton"> + </button>
+      <div class="toDoList"></div>
+    </form>
   </div>
-  <form class="listForm">
-    <input type="text" id="inputField" autofocus>
-    <button type="submit" id="submitButton"> + </button>
-    <div class="toDoList"></div>
-  </form>
+
   <script src="list.js"> </script>
 </body>
 
