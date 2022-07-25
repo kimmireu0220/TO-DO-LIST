@@ -1,4 +1,13 @@
 window.onload=function() {
+  const today = new Date();
+  const year = today.getFullYear(); 
+  const month = today.getMonth() + 1;
+  const date = today.getDate();  
+
+  const title = document.querySelector('.title');
+  title.innerText = `${year}.${month}.${date}
+  To Do List`; 
+
   if (savedToDos) {
     const parsedToDos = JSON.parse(savedToDos);
     toDos = parsedToDos;
