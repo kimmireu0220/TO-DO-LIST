@@ -35,17 +35,7 @@ function makeToDo(newToDo) {
   list.appendChild(button);  
   span.innerText = newToDo.text;
   button.innerText = '❌';    
-  toDoList.appendChild(list);  
-
-  list.addEventListener('click', function() {
-    if (list.style.textDecoration == 'none') {
-      list.style.textDecoration = 'line-through';
-      list.style.textDecorationColor = 'red';
-    } 
-    else {
-      list.style.textDecoration = 'none';
-    }
-  })
+  toDoList.appendChild(list); 
   
   button.addEventListener('click', removeToDos);
 }
@@ -54,11 +44,13 @@ function handleToDoSubmit(event) {
   event.preventDefault();    
   if (inputBox.value) {
     const newToDo = inputBox.value;
-    inputBox.value= "";  
     const newToDoObject = {
       text: newToDo,
       id: Date.now(),
     };
+    
+    inputBox.value= "";  
+
     toDos.push(newToDoObject);
     makeToDo(newToDoObject);
     saveToDos();
