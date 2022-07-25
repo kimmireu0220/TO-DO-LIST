@@ -32,4 +32,8 @@ html, body {
   outline: auto;
 }
 
-
+li button {
+  position: absolute;
+  right: 1040px;
+  margin-top: 4px;
+}

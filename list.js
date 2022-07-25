@@ -5,11 +5,16 @@ const toDoList = document.querySelector('.toDoList');    // 할 일 리스트창
 listForm.addEventListener('submit', function(e) {
   e.preventDefault();    
   const list = document.createElement('li');     
-  list.innerText = inputBox.value;
+  const span = document.createElement('span');
+  const button = document.createElement('button');
 
   if (inputBox.value) {
-    toDoList.appendChild(list);      
-    inputBox.value= "";        
+    list.appendChild(span);
+    list.appendChild(button);  
+    span.innerText = inputBox.value;
+    button.innerText = 'X';    
+    toDoList.appendChild(list);  
+    inputBox.value= "";   
   }  
      
   list.addEventListener('click', function() {
@@ -21,8 +26,9 @@ listForm.addEventListener('submit', function(e) {
     }
   })
   
-  list.addEventListener('contextmenu', function(e) {
+  button.addEventListener('click', function(e) {
     e.preventDefault();  
-    toDoList.removeChild(list);
+    const removingOne = e.target.parentElement;
+    removingOne.remove();
   })
 })
