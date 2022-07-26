@@ -16,9 +16,16 @@
     <form class="listForm">
       <input type="text" id="inputField" autofocus>
       <button type="submit" id="submitButton"> ➕ </button>
-      <button id="deleteAllButton"> 전체 삭제 </button>
-      <div class="toDoList"></div>
     </form>
+    <div class="toDoList"></div>
+    <button id="deleteAllButton"> 전체 삭제 </button>
+  </div>
+  <div class="modal-overlay" id="hidden">
+    <div class="modal" id="hidden">
+      <div>정말로 삭제를 하시겠습니까?</div>
+      <button class="confirm-delete-button">⭕️</button>
+      <button class="reject-delete-button">❌</button>
+    </div>
   </div>
   <script src="list.js"> </script>
 </body>

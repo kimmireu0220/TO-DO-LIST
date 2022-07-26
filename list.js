@@ -15,23 +15,39 @@ window.onload=function() {
   }
 }
 
-const listForm = document.querySelector('.listForm');    // 라스트  양식
-const inputBox = document.getElementById('inputField');  // 리스트 입력창
-const toDoList = document.querySelector('.toDoList');    // 리스트 내역
-const deleteAllButton = document.querySelector('#deleteAllButton');
+const listForm = document.querySelector('.listForm');                                 // 라스트  양식
+const inputBox = document.getElementById('inputField');                               // 리스트 입력창
+const toDoList = document.querySelector('.toDoList');                                 // 리스트 내역
+const deleteAllButton = document.querySelector('#deleteAllButton');                   // 전체 삭제 버튼
+const modal = document.querySelector('.modal');                                       // 전체 삭제 확인 창
+const modal_overlay = document.querySelector('.modal-overlay');
+const confirm_delete_button = document.querySelector('.confirm-delete-button');
+const reject_delete_button = document.querySelector('.reject-delete-button');
 
-let toDos = [];                                          // 리스트 저장 공간
-const TODOS_KEY = "todos";                               // localStorage key값 
-const savedToDos = localStorage.getItem(TODOS_KEY);      // 저장된 리스트 
+let toDos = [];                                                                       // 리스트 저장 공간
+const TODOS_KEY = "todos";                                                            // localStorage key값 
+const savedToDos = localStorage.getItem(TODOS_KEY);                                   // 저장된 리스트 
 
-function deleteAll() {
+function confirmDelete() {
   toDos = [];
   inputBox.value = "";
   window.localStorage.clear();
-  window.location.reload();
+  window.location.reload(); 
 }
 
-deleteAllButton.addEventListener('click', deleteAll);
+confirm_delete_button.addEventListener('click', confirmDelete);
+
+function showConfirm() {
+  modal.removeAttribute('id');
+  modal_overlay.removeAttribute('id');
+}
+
+deleteAllButton.addEventListener('click', showConfirm);
+
+reject_delete_button.addEventListener("click", e => {
+  modal.id = 'hidden';
+  modal_overlay.id = 'hidden';
+})
 
 function removeToDos(event) {
   const targeted = event.target.parentElement;
