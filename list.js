@@ -26,6 +26,7 @@ const savedToDos = localStorage.getItem(TODOS_KEY);      // 저장된 리스트
 
 function deleteAll() {
   toDos = [];
+  inputBox.value = "";
   window.localStorage.clear();
   window.location.reload();
 }
