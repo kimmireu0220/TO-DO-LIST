@@ -1,24 +1,31 @@
+:root {
+  --lightgrey--: rgb(219, 213, 213);
+  --orange--: rgb(245, 190, 89);
+  --black--: rgb(6, 6, 6);
+  --grey--: rgb(138, 134, 134);
+}
+
 html {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: lightgrey;
+  background-color: var(--lightgrey--);
 }
 
 .listContainer {
   margin: 24px 12px;
   padding: 8px 24px;
   width: auto;
-  background-color: rgb(245, 190, 89);
+  background-color: var(--orange--);
   border-radius: 5px;
 }
 
 .title {
-  color: black;
+  color: var(--black--);
 }
 
 #inputField {
   width: 40%;
   height: 20px;
-  border: 1px solid black;
+  border: 1px solid var(--black--);
   outline: none;
   font-size: 24px;
   vertical-align: middle;
@@ -41,8 +48,8 @@ html {
   margin: 24px;
   margin-left: 0;
   padding: 12px;
-  color: black;
-  border: 2px solid black;
+  color: var(--black--);
+  border: 2px solid var(--black--);
   border-radius: 5px;
 }
 
@@ -55,31 +62,45 @@ html {
   font-size: 24px;
 }
 
-.modal {
-  background-color: rgb(125, 125, 154);
-  border-radius: 5px;
-  text-align: center;
-  margin: 100px;
-  padding: 12px;
-}
-
-#hidden {
-  display: none;
-}
-
 .modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   position: absolute;
   left: 0;
   top: 0;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(1.5px);
-  -webkit-backdrop-filter: blur(1.5px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.modal {
+  height: 10%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--grey--);
+  border-radius: 8px;
+}
+
+.confirm-phrase {
+  margin-top: 12px;
+  font-size: 24px;
+}
+
+.modal .buttons {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal .buttons button {
+  margin: 8px;
+  padding: 8px 36px;
+}
+
+#hidden {
+  display: none;
 }
