@@ -18,10 +18,19 @@ window.onload=function() {
 const listForm = document.querySelector('.listForm');    // 라스트  양식
 const inputBox = document.getElementById('inputField');  // 리스트 입력창
 const toDoList = document.querySelector('.toDoList');    // 리스트 내역
+const deleteAllButton = document.querySelector('#deleteAllButton');
 
 let toDos = [];                                          // 리스트 저장 공간
 const TODOS_KEY = "todos";                               // localStorage key값 
 const savedToDos = localStorage.getItem(TODOS_KEY);      // 저장된 리스트 
+
+function deleteAll() {
+  toDos = [];
+  window.localStorage.clear();
+  window.location.reload();
+}
+
+deleteAllButton.addEventListener('click', deleteAll);
 
 function removeToDos(event) {
   const targeted = event.target.parentElement;
