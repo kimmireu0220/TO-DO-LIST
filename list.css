@@ -1,27 +1,38 @@
 html {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: lightgrey;
 }
 
-.listForm {
-  width: 400px;
+.listContainer {
+  margin: 24px 12px;
+  padding: 8px 24px;
+  width: auto;
+  background-color: rgb(245, 190, 89);
+  border-radius: 5px;
+}
+
+.title {
+  color: black;
 }
 
 #inputField {
-  width: 300px;
-  height: 25px;
+  width: 75%;
+  height: 20px;
   border: 1px solid black;
   outline: none;
   font-size: 24px;
   vertical-align: middle;
   padding: 12px;
+  margin-bottom: 12px;
   margin-right: 12px;
 }
 
-#submitButton {
+#submitButton { 
   font-size: 24px;
 }
 
 .toDoList li {
+  width: auto;
   display: flex;
   justify-content: space-between;
   list-style: none;
@@ -29,5 +40,11 @@ html {
   margin: 24px;
   margin-left: 0;
   padding: 12px;
-  outline: auto;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.toDoList li span {
+  padding-left: 10px;
 }

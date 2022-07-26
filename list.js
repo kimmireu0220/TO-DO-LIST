@@ -24,9 +24,9 @@ const TODOS_KEY = "todos";                               // localStorage key값
 const savedToDos = localStorage.getItem(TODOS_KEY);      // 저장된 리스트 
 
 function removeToDos(event) {
-  const target = event.target.parentElement;
-  target.remove();
-  toDos = toDos.filter((toDo) => toDo.id !== parseInt(target.id));
+  const targeted = event.target.parentElement;
+  targeted.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(targeted.id));
   saveToDos();
 }
 
