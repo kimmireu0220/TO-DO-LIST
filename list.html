@@ -9,23 +9,25 @@
 </head>
 
 <body>
-  <div class="listContainer">
-    <div class="titleContainer">
-      <h1 class="title"></h1>
+  <main class="listContainer">
+    <h1 class="title">To Do List</h1>
+    <h2 class="todayDate"></h2>
+    <div class="mainContainer">
+      <form class="listForm">
+        <input type="text" id="inputField" autofocus>
+        <button type="submit" id="submitButton"> ➕ </button>
+      </form>
+      <button id="deleteAllButton"> 전체 삭제 </button>
     </div>
-    <form class="listForm">
-      <input type="text" id="inputField" autofocus>
-      <button type="submit" id="submitButton"> ➕ </button>
-    </form>
     <div class="toDoList"></div>
-    <button id="deleteAllButton"> 전체 삭제 </button>
-  </div>
-  <div class="modal-overlay" id="hidden">
-    <div class="modal" id="hidden">
-      <div class="confirm-phrase">전체 삭제를 하시겠습니까?</div>
-      <div class="buttons">
-        <button class="confirm-delete-button">⭕️</button>
-        <button class="reject-delete-button">❌</button>
+  </main>
+
+  <div class="confirmModalOverlay" id="hidden">
+    <div class="confirmModal" id="hidden">
+      <div class="confirmPhrase">전체 삭제를 하시겠습니까?</div>
+      <div class="confirmButtons">
+        <button class="confirmDeleteButton">⭕️</button>
+        <button class="rejectDeleteButton">❌</button>
       </div>
     </div>
   </div>

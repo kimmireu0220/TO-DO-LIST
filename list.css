@@ -22,8 +22,12 @@ html {
   color: var(--black--);
 }
 
-#inputField {
-  width: 40%;
+.mainContainer {
+  display: flex;
+}
+
+.listForm #inputField {
+  width: 50%;
   height: 20px;
   border: 1px solid var(--black--);
   outline: none;
@@ -34,9 +38,17 @@ html {
   margin-right: 12px;
 }
 
-.listForm button {
+.listForm #submitButton {
   margin-left: 12px; 
   font-size: 24px;
+}
+
+#deleteAllButton {
+  font-size: 24px;
+  width: auto;
+  margin-bottom: 8px;
+  padding: 0px 12px;
+  white-space: nowrap;
 }
 
 .toDoList li {
@@ -58,11 +70,7 @@ html {
   padding-top: 8px;
 }
 
-#deleteAllButton {
-  font-size: 24px;
-}
-
-.modal-overlay {
+.confirmModalOverlay {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,9 +82,9 @@ html {
   background: rgba(255, 255, 255, 0.25);
 }
 
-.modal {
+.confirmModal {
   height: 10%;
-  width: 40%;
+  width: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,22 +93,35 @@ html {
   border-radius: 8px;
 }
 
-.confirm-phrase {
+.confirmModal .confirmPhrase {
   margin-top: 12px;
   font-size: 24px;
+  white-space: nowrap;
 }
 
-.modal .buttons {
+.confirmModal .confirmButtons {
   width: 90%;
   display: flex;
   justify-content: flex-end;
 }
 
-.modal .buttons button {
+.confirmModal .confirmButtons button {
   margin: 8px;
   padding: 8px 36px;
 }
 
 #hidden {
   display: none;
+}
+
+@media screen and (min-width:768px) {
+  .confirmModal {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .confirmModal {
+    width: 35%;
+  }
 }
