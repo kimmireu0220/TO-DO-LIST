@@ -71,8 +71,8 @@ deleteAllButton.addEventListener('click', showConfirm);
 function confirmDelete() {
   toDos = [];
   inputBox.value = "";
-  window.localStorage.clear();
-  window.location.reload(); 
+  window.location.remove(TODOS_KEY); 
+  window.location.reload()
 }
 confirmDeleteButton.addEventListener('click', confirmDelete);
 
@@ -82,10 +82,6 @@ function hideConfirm() {
 rejectDeleteButton.addEventListener("click", hideConfirm);
 confirmModalOverlay.addEventListener('click', hideConfirm);
 window.addEventListener("keyup", e => {if (e.key === "Escape") hideConfirm()});
-
-
-
-
 
 
 

@@ -1,5 +1,6 @@
 :root {
   --lightgrey--: rgb(219, 213, 213);
+  --modal-background-- :rgba(219, 213, 213, 1);
   --orange--: rgb(245, 190, 89);
   --black--: rgb(6, 6, 6);
   --grey--: rgb(138, 134, 134);
@@ -15,7 +16,7 @@ html {
   padding: 8px 24px;
   width: auto;
   background-color: var(--orange--);
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .title {
@@ -24,30 +25,37 @@ html {
 
 .mainContainer {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.listForm {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .listForm #inputField {
-  width: 50%;
+  width: 100%;
   height: 20px;
   border: 1px solid var(--black--);
-  outline: none;
   font-size: 24px;
-  vertical-align: middle;
-  padding: 12px;
-  margin-bottom: 12px;
-  margin-right: 12px;
+  padding: 24px;
+  margin: 24px 12px;
 }
 
 .listForm #submitButton {
-  margin-left: 12px; 
+  margin: 24px 12px;
   font-size: 24px;
+  padding: 8px 12px;
 }
 
 #deleteAllButton {
   font-size: 24px;
-  width: auto;
-  margin-bottom: 8px;
-  padding: 0px 12px;
+  margin-left: 50px;
+  padding: 12px 12px;
+  height: 48px;
   white-space: nowrap;
 }
 
@@ -62,12 +70,11 @@ html {
   padding: 12px;
   color: var(--black--);
   border: 2px solid var(--black--);
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .toDoList li span {
-  padding-left: 12px;
-  padding-top: 8px;
+  padding: 8px 12px;
 }
 
 .confirmModalOverlay {
@@ -79,7 +86,7 @@ html {
   position: absolute;
   left: 0;
   top: 0;
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--modal-background--);
 }
 
 .confirmModal {
@@ -116,12 +123,23 @@ html {
 
 @media screen and (min-width:768px) {
   .confirmModal {
-    width: 45%;
+    width: 40%;
   }
 }
 
 @media screen and (min-width:1024px) {
   .confirmModal {
-    width: 35%;
+    width: 30%;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .mainContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  #deleteAllButton {
+    margin-left: 12px;
   }
 }
