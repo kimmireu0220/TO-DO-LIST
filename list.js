@@ -71,7 +71,7 @@ deleteAllButton.addEventListener('click', showConfirm);
 function confirmDelete() {
   toDos = [];
   inputBox.value = "";
-  window.location.remove(TODOS_KEY); 
+  window.location.removeItem(TODOS_KEY); 
   window.location.reload()
 }
 confirmDeleteButton.addEventListener('click', confirmDelete);
